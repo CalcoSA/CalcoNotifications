@@ -1,0 +1,6 @@
+@Calco.Notifications.Api_HostAddress = http://localhost:5128
+
+GET {{Calco.Notifications.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
