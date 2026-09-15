@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calco.Notifications.Api", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calco.Notifications.Worker", "src\Calco.Notifications.Worker\Calco.Notifications.Worker.csproj", "{C29AC89A-C028-4E16-BCC3-74B6EAAA31E8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05-4346-4AA6-1389-037BE0695223}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calco.Notifications.Domain.Tests", "tests\Calco.Notifications.Domain.Tests\Calco.Notifications.Domain.Tests.csproj", "{39201B49-4E6C-4D41-8102-493EF91FDB04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +89,18 @@ Global
 		{C29AC89A-C028-4E16-BCC3-74B6EAAA31E8}.Release|x64.Build.0 = Release|Any CPU
 		{C29AC89A-C028-4E16-BCC3-74B6EAAA31E8}.Release|x86.ActiveCfg = Release|Any CPU
 		{C29AC89A-C028-4E16-BCC3-74B6EAAA31E8}.Release|x86.Build.0 = Release|Any CPU
+		{39201B49-4E6C-4D41-8102-493EF91FDB04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39201B49-4E6C-4D41-8102-493EF91FDB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39201B49-4E6C-4D41-8102-493EF91FDB04}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{39201B49-4E6C-4D41-8102-493EF91FDB04}.Debug|x64.Build.0 = Debug|Any CPU
+		{39201B49-4E6C-4D41-8102-493EF91FDB04}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{39201B49-4E6C-4D41-8102-493EF91FDB04}.Debug|x86.Build.0 = Debug|Any CPU
+		{39201B49-4E6C-4D41-8102-493EF91FDB04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39201B49-4E6C-4D41-8102-493EF91FDB04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39201B49-4E6C-4D41-8102-493EF91FDB04}.Release|x64.ActiveCfg = Release|Any CPU
+		{39201B49-4E6C-4D41-8102-493EF91FDB04}.Release|x64.Build.0 = Release|Any CPU
+		{39201B49-4E6C-4D41-8102-493EF91FDB04}.Release|x86.ActiveCfg = Release|Any CPU
+		{39201B49-4E6C-4D41-8102-493EF91FDB04}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,5 +111,6 @@ Global
 		{F1104C45-EA25-4155-B7BE-AFF85EABB120} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{EA41F0BE-A1FE-4BD9-B2A3-E5072B9FA683} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{C29AC89A-C028-4E16-BCC3-74B6EAAA31E8} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{39201B49-4E6C-4D41-8102-493EF91FDB04} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 	EndGlobalSection
 EndGlobal

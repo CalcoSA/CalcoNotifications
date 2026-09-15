@@ -1,4 +1,5 @@
 ﻿using Calco.Notifications.Domain.Notifications.Events;
+using Calco.Notifications.Domain.Applications;
 using Calco.Notifications.Domain.Recipients;
 using Calco.Notifications.Domain.Templates;
 using Calco.Notifications.Domain.Common;
@@ -11,10 +12,10 @@ namespace Calco.Notifications.Domain.Notifications
 
         private Notification() { }
 
-        private Notification(NotificationId id, ApplicationId applicationId, NotificationChannel channel, EmailAddress? emailRecipient, PhoneNumber? phoneRecipient, TemplateKey templateKey, NotificationPriority priority, IdempotencyKey idempotencyKey, DateTimeOffset createdAtUtc, DateTimeOffset? expiresAtUtc)
+        private Notification(NotificationId id, ClientApplicationId clientApplicationId, NotificationChannel channel, EmailAddress? emailRecipient, PhoneNumber? phoneRecipient, TemplateKey templateKey, NotificationPriority priority, IdempotencyKey idempotencyKey, DateTimeOffset createdAtUtc, DateTimeOffset? expiresAtUtc)
         {
             Id = id;
-            ApplicationId = applicationId;
+            ClientApplicationId = clientApplicationId;
             Channel = channel;
             EmailRecipient = emailRecipient;
             PhoneRecipient = phoneRecipient;
@@ -30,7 +31,7 @@ namespace Calco.Notifications.Domain.Notifications
         }
 
         public NotificationId Id { get; private set; }
-        public ApplicationId ApplicationId { get; private set; } = default!;
+        public ClientApplicationId ClientApplicationId { get; private set; } = default!;
         public NotificationChannel Channel { get; private set; }
         public EmailAddress? EmailRecipient { get; private set; }
         public PhoneNumber? PhoneRecipient { get; private set; }
@@ -49,7 +50,7 @@ namespace Calco.Notifications.Domain.Notifications
 
         public IReadOnlyCollection<DeliveryAttempt> DeliveryAttempts => _deliveryAttempts.AsReadOnly();
 
-        public static Notification CreateEmail(ApplicationId applicationId, EmailAddress recipient, TemplateKey templateKey, NotificationPriority priority, IdempotencyKey idempotencyKey, DateTimeOffset createdAtUtc, DateTimeOffset? expiresAtUtc = null)
+        public static Notification CreateEmail(ClientApplicationId ClientApplicationId, EmailAddress recipient, TemplateKey templateKey, NotificationPriority priority, IdempotencyKey idempotencyKey, DateTimeOffset createdAtUtc, DateTimeOffset? expiresAtUtc = null)
         {
             ArgumentNullException.ThrowIfNull(recipient);
             ArgumentNullException.ThrowIfNull(templateKey);
@@ -57,10 +58,10 @@ namespace Calco.Notifications.Domain.Notifications
 
             ValidateExpiration(createdAtUtc, expiresAtUtc);
 
-            return new Notification(NotificationId.New(), applicationId, NotificationChannel.Email, recipient, null, templateKey, priority, idempotencyKey, createdAtUtc, expiresAtUtc);
+            return new Notification(NotificationId.New(), ClientApplicationId, NotificationChannel.Email, recipient, null, templateKey, priority, idempotencyKey, createdAtUtc, expiresAtUtc);
         }
 
-        public static Notification CreateSms(ApplicationId applicationId, PhoneNumber recipient, TemplateKey templateKey, NotificationPriority priority, IdempotencyKey idempotencyKey, DateTimeOffset createdAtUtc, DateTimeOffset? expiresAtUtc = null)
+        public static Notification CreateSms(ClientApplicationId ClientApplicationId, PhoneNumber recipient, TemplateKey templateKey, NotificationPriority priority, IdempotencyKey idempotencyKey, DateTimeOffset createdAtUtc, DateTimeOffset? expiresAtUtc = null)
         {
             ArgumentNullException.ThrowIfNull(recipient);
             ArgumentNullException.ThrowIfNull(templateKey);
@@ -68,7 +69,7 @@ namespace Calco.Notifications.Domain.Notifications
 
             ValidateExpiration(createdAtUtc, expiresAtUtc);
 
-            return new Notification(NotificationId.New(), applicationId, NotificationChannel.Sms, null, recipient, templateKey, priority, idempotencyKey, createdAtUtc, expiresAtUtc);
+            return new Notification(NotificationId.New(), ClientApplicationId, NotificationChannel.Sms, null, recipient, templateKey, priority, idempotencyKey, createdAtUtc, expiresAtUtc);
         }
 
         public void Queue(DateTimeOffset queuedAtUtc)
